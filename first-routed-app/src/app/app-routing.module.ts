@@ -8,7 +8,7 @@ import { ArtistComponent} from './artist/artist.component';
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'artist', component: ArtistComponent },
+  { path: 'artist/:id', component: ArtistComponent },
   { path: 'tracks/:id', component: TrackComponent },
   { path: '',   redirectTo: '/search', pathMatch: 'full' }
 ];
