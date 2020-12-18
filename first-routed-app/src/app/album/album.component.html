@@ -1,0 +1,20 @@
+<div *ngIf="album">
+  <div class="thumbnail">
+    <div>
+      <img src="{{ album.images[1].url }}" class="img-responsive">
+      <br>
+      <p style="font-family:verdana">Nome artista: {{ album.artists[0].name }}</p>
+      <p style="font-family:verdana">Nome album: {{ album.name }}</p>
+      <p style="font-family:verdana">Data di rilascio: {{ album.release_date }}</p>
+      <p style="font-family:verdana">Popolarità: {{ album.popularity }}</p>
+      <p style="font-family:verdana">Etichetta discografica: {{ album.copyrights[0].text }}</p>
+    </div>
+    <div *ngFor="let c of album.tracks.items">
+        <hr>
+        <h2>{{c.track_number}},{{c.name}}</h2>
+        <audio controls src="{{c.preview_url}}"></audio>
+      </div>
+  </div>
+  <br>
+  <p style="font-family:verdana"><a href (click)="back()">Back</a></p>
+</div>

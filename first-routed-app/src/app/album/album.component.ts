@@ -5,19 +5,19 @@ import { Observable } from 'rxjs';
 import {Location} from '@angular/common'
 
 @Component({
-  selector: 'app-artist',
-  templateUrl: './artist.component.html',
-  styleUrls: ['./artist.component.css']
+  selector: 'app-album',
+  templateUrl: './album.component.html',
+  styleUrls: ['./album.component.css']
 })
-export class ArtistComponent implements OnInit {
-  artist: any;
+export class AlbumComponent implements OnInit {
+  album: any;
   routeObs: Observable<ParamMap>;
   spotifyServiceObs: Observable<Object>;
-  constructor(
-    private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
     private router: Router,
     private service: SpotifyService,
-    private location: Location){}
+    private location: Location)
+    {}
 
   ngOnInit(): void {
     this.routeObs = this.route.paramMap;
@@ -26,10 +26,10 @@ export class ArtistComponent implements OnInit {
 
   getRouterParam = (params: ParamMap) =>
   {
-    let artistId = params.get('id');
-    console.log (artistId);
-    this.spotifyServiceObs = this.service.getArtist(artistId);
-    this.spotifyServiceObs.subscribe((data)=>this.artist = data)
+    let albumId = params.get('id');
+    console.log (albumId);
+    this.spotifyServiceObs = this.service.getAlbum(albumId);
+    this.spotifyServiceObs.subscribe((data)=>this.album = data)
   }
 
   back() : void

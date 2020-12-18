@@ -1,3 +1,12 @@
 <div *ngIf="artist">
-  <p>{{artist.followers.total}}</p>
+  <div class="thumbnail">
+    <img src="{{ artist.images[1].url }}" class="img-responsive">
+    <br>
+    <p style="font-family:verdana">Nome artista: {{ artist.name }}</p>
+    <p style="font-family:verdana">Follower: {{ artist.followers.total }}</p>
+    <p style="font-family:verdana">Popolarità: {{ artist.popularity }}</p>
+    <p style="font-family:verdana">Genere: {{ artist.genres }}</p>
+  </div>
+  <br>
+  <p style="font-family:verdana"><a href (click)="back()">Back</a></p>
 </div>
